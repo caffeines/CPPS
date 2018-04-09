@@ -3,7 +3,6 @@
 using namespace std;
 int main()
 {
-
     int i,j,sum,x,y;
     while(cin>>i>>j)
     {
