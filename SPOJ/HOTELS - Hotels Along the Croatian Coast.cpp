@@ -5,7 +5,6 @@
     University  : North South University (NSU)
 =================================================*/
 
-/// Unknown
 #include <bits/stdc++.h>
 #define all(x)                                 (x).begin(),(x).end()
 #define ABS(x)                                      ((x)<0?-(x):(x))
@@ -71,25 +70,45 @@ template < typename T> inline T bigmod (T b, T p, T m) { T res = 1 % m, x = b % 
                                                 stop doubting yourself, work hard and make it happen.
 ===================================================================================================================================================*/
 
+vi v;
+void answer(int n, int m)
+{
+    int l = 0, r = 0; ll sum = 0,ans = 0;
+        while(l<n)
+        {
+            while(r<n && sum+v[r] <= m)
+            {
+                sum += v[r];
+                r++;
+            }
+
+            ans = MAX(ans,sum);
+            sum -= v[l];
+            l++;
+        }
+
+        cout<<ans<<endl;
+}
 
 int main()
 {
     FasterIO;
     #ifdef caffeines
-    //freopen("input.txt","r",stdin);
+    freopen("input.txt","r",stdin);
     //freopen("output.txt","w",stdout);
     #endif // caffeines
-    int n,x,sum=0;
-    cin>>n;
-    while(n--)
+
+    int n,m,x;
+    while(cin>>n>>m)
     {
-        cin>>x;
-        sum += x;
+        v.clear();
+        REP(i,n)
+        {
+            cin>>x;
+            v.pb(x);
+        }
+        answer(n,m);
     }
-    if(sum%2)
-        cout<<"1"<<endl;
-    else
-        cout<<"0"<<endl;
 
     return 0;
 }

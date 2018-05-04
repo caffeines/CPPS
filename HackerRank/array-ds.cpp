@@ -13,9 +13,9 @@ int main()
 
     }
     for (i = 0; i < N/2; ++i) {
-    temp = A[N-i-1];
-    A[N-i-1] = A[i];
-    A[i] = temp;
+        temp = A[N-i-1];
+        A[N-i-1] = A[i];
+        A[i] = temp;
     }
 
     for(int i=0;i<N;i++)
